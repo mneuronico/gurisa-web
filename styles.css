@@ -1,0 +1,588 @@
+:root {
+  color-scheme: light;
+  --page-bg: #63ad6a;
+  --top-crop: 18.522%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--page-bg);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--page-bg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.site {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.artboard {
+  position: relative;
+  width: min(100%, 1921px);
+  aspect-ratio: 1921 / 3399;
+  overflow: hidden;
+  background: var(--page-bg);
+  line-height: 0;
+}
+
+.scene {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  aspect-ratio: 1921 / 5399;
+  transform: translateY(calc(-1 * var(--top-crop)));
+  transform-origin: top center;
+}
+
+.layer {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  z-index: var(--z, 1);
+  display: block;
+  width: var(--w);
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  transform-origin: center;
+  will-change: transform;
+  transition: filter 180ms ease;
+}
+
+.hotspot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  display: block;
+  z-index: 100;
+  outline: 0;
+}
+
+.hotspot:focus-visible {
+  outline: 0;
+}
+
+.hotspot.is-active {
+  outline: 0;
+}
+
+.delay-1 {
+  animation-delay: -1.2s;
+}
+
+.delay-2 {
+  animation-delay: -2.4s;
+}
+
+.delay-3 {
+  animation-delay: -3.6s;
+}
+
+.float-soft {
+  animation: float-soft 6.8s ease-in-out infinite;
+}
+
+.title-drift {
+  animation: title-drift 7.4s ease-in-out infinite;
+}
+
+.paper-wiggle {
+  animation: paper-wiggle 8.5s ease-in-out infinite;
+}
+
+.pulse-soft {
+  animation: pulse-soft 4.8s ease-in-out infinite;
+}
+
+.sparkle {
+  animation: sparkle 3.2s ease-in-out infinite;
+}
+
+.layer.is-hovered {
+  animation: button-hover-pop 520ms cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+  filter: drop-shadow(0 18px 14px rgba(0, 0, 0, 0.18));
+}
+
+.layer.is-hovered[class*="capitulo"] {
+  animation-name: button-hover-play;
+}
+
+.layer.is-hovered[class*="guia-"] {
+  animation-name: button-hover-paper;
+}
+
+.layer.is-hovered.enersa-img,
+.layer.is-hovered.turismo-img,
+.layer.is-hovered.mientrerios-img {
+  animation-name: button-hover-sign;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -1.2%, 0);
+  }
+}
+
+@keyframes title-drift {
+  0%,
+  100% {
+    transform: rotate(-0.25deg) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: rotate(0.25deg) translate3d(0, -1%, 0);
+  }
+}
+
+@keyframes paper-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: rotate(1.2deg) translate3d(0, -1.2%, 0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.018);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes button-hover-pop {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  55% {
+    transform: translate3d(0, -2%, 0) scale(1.07) rotate(-1deg);
+  }
+
+  100% {
+    transform: translate3d(0, -1.2%, 0) scale(1.045) rotate(0deg);
+  }
+}
+
+@keyframes button-hover-play {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  48% {
+    transform: translate3d(0, -2.3%, 0) scale(1.055);
+  }
+
+  100% {
+    transform: translate3d(0, -1.2%, 0) scale(1.035);
+  }
+}
+
+@keyframes button-hover-paper {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+
+  45% {
+    transform: translate3d(0, -2%, 0) rotate(3deg) scale(1.06);
+  }
+
+  100% {
+    transform: translate3d(0, -1.1%, 0) rotate(1.4deg) scale(1.035);
+  }
+}
+
+@keyframes button-hover-sign {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  55% {
+    transform: translate3d(0, -1.8%, 0) scale(1.06) rotate(0.7deg);
+  }
+
+  100% {
+    transform: translate3d(0, -0.9%, 0) scale(1.035) rotate(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-soft,
+  .title-drift,
+  .paper-wiggle,
+  .pulse-soft,
+  .sparkle,
+  .layer.is-hovered {
+    animation: none;
+  }
+}
+
+.capitulo-1 {
+  --x: 19.0583%;
+  --y: 44.3526%;
+  --w: 19.8328%;
+  --h: 4.7004%;
+}
+
+.fondo {
+  --x: 0%;
+  --y: 0%;
+  --w: 100%;
+  --z: 1;
+}
+
+.gradients {
+  --x: 0%;
+  --y: 0%;
+  --w: 100%;
+  --z: 2;
+}
+
+.titulo {
+  --x: 36.4846%;
+  --y: 20.9035%;
+  --w: 27.0109%;
+  --z: 10;
+}
+
+.girl-standing {
+  --x: 19.6773%;
+  --y: 19.3369%;
+  --w: 25.1952%;
+  --z: 11;
+}
+
+.boy-standing {
+  --x: 53.2535%;
+  --y: 19.3369%;
+  --w: 25.7678%;
+  --z: 11;
+}
+
+.volti {
+  --x: 22.6445%;
+  --y: 30.7464%;
+  --w: 17.5429%;
+  --z: 20;
+}
+
+.modo {
+  --x: 38.5737%;
+  --y: 30.7464%;
+  --w: 23.3732%;
+  --z: 20;
+}
+
+.jujo {
+  --x: 58.3550%;
+  --y: 30.7464%;
+  --w: 21.1348%;
+  --z: 20;
+}
+
+.volti-button {
+  --x: 22.6445%;
+  --y: 30.7464%;
+  --w: 17.5429%;
+  --h: 8.6127%;
+}
+
+.modo-button {
+  --x: 38.5737%;
+  --y: 30.7464%;
+  --w: 23.3732%;
+  --h: 8.6127%;
+}
+
+.jujo-button {
+  --x: 58.3550%;
+  --y: 30.7464%;
+  --w: 21.1348%;
+  --h: 8.6127%;
+}
+
+.episodios-title {
+  --x: 36.2832%;
+  --y: 40.0259%;
+  --w: 28.4227%;
+  --z: 30;
+}
+
+.capitulo-1-img {
+  --x: 17.3347%;
+  --y: 43.6933%;
+  --w: 22.3842%;
+  --z: 33;
+}
+
+.capitulo-2-img {
+  --x: 39.6668%;
+  --y: 43.6933%;
+  --w: 21.0307%;
+  --z: 33;
+}
+
+.capitulo-3-img {
+  --x: 60.6976%;
+  --y: 43.6933%;
+  --w: 22.0198%;
+  --z: 33;
+}
+
+.capitulo-4-img {
+  --x: 27.8501%;
+  --y: 51.6577%;
+  --w: 22.3842%;
+  --z: 33;
+}
+
+.capitulo-5-img {
+  --x: 50.1822%;
+  --y: 51.6577%;
+  --w: 23.1650%;
+  --z: 33;
+}
+
+.capybara-bike {
+  --x: 0%;
+  --y: 46.9161%;
+  --w: 37.4805%;
+  --z: 31;
+}
+
+.animal-pointing {
+  --x: 67.4128%;
+  --y: 46.5086%;
+  --w: 32.5872%;
+  --z: 31;
+}
+
+.estrellitas {
+  --x: 0%;
+  --y: 60.1778%;
+  --w: 100%;
+  --z: 40;
+}
+
+.guias-title {
+  --x: 36.3352%;
+  --y: 59.9926%;
+  --w: 30.1406%;
+  --z: 42;
+}
+
+.girl-jumping {
+  --x: 8.6413%;
+  --y: 61.6966%;
+  --w: 25.7678%;
+  --z: 43;
+}
+
+.boy-jumping {
+  --x: 64.4977%;
+  --y: 61.6966%;
+  --w: 24.0500%;
+  --z: 43;
+}
+
+.guia-1-img {
+  --x: 24.6746%;
+  --y: 64.6416%;
+  --w: 15.5128%;
+  --z: 45;
+}
+
+.guia-2-img {
+  --x: 35.7106%;
+  --y: 64.4934%;
+  --w: 13.6387%;
+  --z: 45;
+}
+
+.guia-3-img {
+  --x: 44.9245%;
+  --y: 63.8081%;
+  --w: 13.1182%;
+  --z: 45;
+}
+
+.guia-4-img {
+  --x: 54.8152%;
+  --y: 63.7340%;
+  --w: 12.1291%;
+  --z: 45;
+}
+
+.guia-5-img {
+  --x: 63.8730%;
+  --y: 64.0119%;
+  --w: 12.9099%;
+  --z: 45;
+}
+
+.queres-img {
+  --x: 24.9870%;
+  --y: 70.2538%;
+  --w: 50.9630%;
+  --z: 50;
+}
+
+.enersa-img {
+  --x: 17.1265%;
+  --y: 74.2174%;
+  --w: 20.8225%;
+  --z: 51;
+}
+
+.turismo-img {
+  --x: 37.9490%;
+  --y: 74.2174%;
+  --w: 21.7074%;
+  --z: 51;
+}
+
+.mientrerios-img {
+  --x: 59.6044%;
+  --y: 74.2174%;
+  --w: 24.8308%;
+  --z: 51;
+}
+
+.capitulo-2 {
+  --x: 40.4297%;
+  --y: 44.3526%;
+  --w: 19.8328%;
+  --h: 4.7004%;
+}
+
+.capitulo-3 {
+  --x: 61.8010%;
+  --y: 44.3526%;
+  --w: 19.8328%;
+  --h: 4.7004%;
+}
+
+.capitulo-4 {
+  --x: 28.9745%;
+  --y: 52.1450%;
+  --w: 19.8328%;
+  --h: 4.7004%;
+}
+
+.capitulo-5 {
+  --x: 51.9458%;
+  --y: 52.1450%;
+  --w: 19.8328%;
+  --h: 4.7004%;
+}
+
+.guia-1 {
+  --x: 26.5146%;
+  --y: 65.2242%;
+  --w: 12.3172%;
+  --h: 4.8722%;
+}
+
+.guia-2 {
+  --x: 36.9458%;
+  --y: 64.6742%;
+  --w: 10.6010%;
+  --h: 4.6417%;
+}
+
+.guia-3 {
+  --x: 46.7339%;
+  --y: 64.5353%;
+  --w: 9.7146%;
+  --h: 4.4993%;
+}
+
+.guia-4 {
+  --x: 55.8427%;
+  --y: 64.5108%;
+  --w: 10.0891%;
+  --h: 4.6934%;
+}
+
+.guia-5 {
+  --x: 64.6000%;
+  --y: 64.8315%;
+  --w: 11.3656%;
+  --h: 5.1161%;
+}
+
+.queres-conocer {
+  --x: 26.7547%;
+  --y: 70.2789%;
+  --w: 49.1437%;
+  --h: 4.0700%;
+}
+
+.enersa {
+  --x: 16.5344%;
+  --y: 74.5653%;
+  --w: 21.4021%;
+  --h: 3.0387%;
+}
+
+.turismo {
+  --x: 32.2979%;
+  --y: 74.5704%;
+  --w: 27.3057%;
+  --h: 3.1784%;
+}
+
+.mientrerios {
+  --x: 57.7099%;
+  --y: 73.3083%;
+  --w: 26.7260%;
+  --h: 4.4405%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
