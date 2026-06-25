@@ -88,6 +88,66 @@
       </div>
     </main>
 
+    <div
+      class="pdf-viewer"
+      id="pdf-viewer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pdf-viewer-title"
+      hidden
+    >
+      <div class="pdf-viewer__backdrop" data-close></div>
+      <div class="pdf-viewer__panel" role="document">
+        <header class="pdf-viewer__bar">
+          <div class="pdf-viewer__brand">
+            <span class="pdf-viewer__dot" aria-hidden="true"></span>
+            <h2 class="pdf-viewer__title" id="pdf-viewer-title">Guía para el aula</h2>
+          </div>
+          <div class="pdf-viewer__actions">
+            <a
+              class="pdf-viewer__btn pdf-viewer__btn--ghost"
+              id="pdf-download"
+              href="#"
+              download
+              aria-label="Descargar la guía en PDF"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+                <path
+                  d="M12 3v10m0 0l-4-4m4 4l4-4M5 19h14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>Descargar</span>
+            </a>
+            <button
+              class="pdf-viewer__btn pdf-viewer__btn--close"
+              type="button"
+              data-close
+              aria-label="Cerrar el visor"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22">
+                <path
+                  d="M6 6l12 12M18 6L6 18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="pdf-viewer__stage">
+          <div class="pdf-viewer__spinner" aria-hidden="true"></div>
+          <iframe class="pdf-viewer__frame" id="pdf-frame" title="Visor de la guía" src="about:blank"></iframe>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

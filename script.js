@@ -14,6 +14,53 @@ function setTargetHover(link, isHovered) {
   }
 }
 
+/* ---------- PDF viewer ---------- */
+const guias = {
+  'guia-1-img': { src: 'guias/guia-aula-1.pdf', title: 'Guía para el aula · Micro 1' },
+  'guia-2-img': { src: 'guias/guia-aula-2.pdf', title: 'Guía para el aula · Micro 2' },
+  'guia-3-img': { src: 'guias/guia-aula-3.pdf', title: 'Guía para el aula · Micro 3' },
+  'guia-4-img': { src: 'guias/guia-aula-4.pdf', title: 'Guía para el aula · Micro 4' },
+  'guia-5-img': { src: 'guias/guia-aula-5.pdf', title: 'Guía para el aula · Micro 5' },
+};
+
+const viewer = document.getElementById('pdf-viewer');
+const frame = document.getElementById('pdf-frame');
+const titleEl = document.getElementById('pdf-viewer-title');
+const downloadEl = document.getElementById('pdf-download');
+let lastFocused = null;
+
+function openGuia(guia) {
+  lastFocused = document.activeElement;
+  titleEl.textContent = guia.title;
+  downloadEl.href = guia.src;
+  frame.src = `${guia.src}#view=FitH`;
+  viewer.hidden = false;
+  document.body.classList.add('pdf-open');
+  viewer.querySelector('.pdf-viewer__btn--close').focus();
+}
+
+function closeViewer() {
+  if (viewer.hidden) {
+    return;
+  }
+  viewer.hidden = true;
+  frame.src = 'about:blank';
+  document.body.classList.remove('pdf-open');
+  if (lastFocused && typeof lastFocused.focus === 'function') {
+    lastFocused.focus();
+  }
+}
+
+viewer.querySelectorAll('[data-close]').forEach((el) => {
+  el.addEventListener('click', closeViewer);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeViewer();
+  }
+});
+
 hotspots.forEach((link) => {
   link.addEventListener('pointerenter', () => setTargetHover(link, true));
   link.addEventListener('pointerleave', () => setTargetHover(link, false));
@@ -24,5 +71,10 @@ hotspots.forEach((link) => {
     event.preventDefault();
     link.classList.add('is-active');
     window.setTimeout(() => link.classList.remove('is-active'), 300);
+
+    const guia = guias[link.dataset.target];
+    if (guia) {
+      openGuia(guia);
+    }
   });
 });
