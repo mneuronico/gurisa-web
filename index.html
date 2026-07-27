@@ -11,6 +11,24 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <!--
+      Correccion de color del titulo animado. El WebP salio del video con los
+      colores lavados respecto del resto de la grafica (el coral #F45A4A quedo
+      en #DB7050 y el violeta #6F20A8 en #7A4898). Estos valores son un ajuste
+      de niveles por canal calculado comparando pixel a pixel el WebP con el
+      PNG original del titulo. Es por canal a proposito: una matriz con mezcla
+      entre canales ajustaba mejor el texto pero volvia violeta al pajaro.
+    -->
+    <svg class="visually-hidden" aria-hidden="true" focusable="false">
+      <filter id="titulo-color" color-interpolation-filters="sRGB">
+        <feComponentTransfer>
+          <feFuncR type="linear" slope="1.2054" intercept="-0.0965" />
+          <feFuncG type="linear" slope="1.2049" intercept="-0.1989" />
+          <feFuncB type="linear" slope="1.1107" intercept="-0.0471" />
+        </feComponentTransfer>
+      </filter>
+    </svg>
+
     <main class="site" aria-labelledby="page-title">
       <h1 id="page-title" class="visually-hidden">
         Gurisa y Rio entre mates y aventuras
@@ -27,7 +45,7 @@
           >
           <img class="layer gradients" src="partes/gradients000.png" alt="" aria-hidden="true" draggable="false">
 
-        <img class="layer titulo float-soft" src="partes/Titulo_gurisa_y_rio.png" alt="" aria-hidden="true" draggable="false">
+        <img class="layer titulo float-soft" src="partes/titulo_pajaro.webp" alt="" aria-hidden="true" draggable="false">
         <img class="layer girl-standing float-soft delay-1" src="partes/Girl_standing.png" alt="" aria-hidden="true" draggable="false">
         <img class="layer boy-standing float-soft delay-2" src="partes/Boy_standing.png" alt="" aria-hidden="true" draggable="false">
 

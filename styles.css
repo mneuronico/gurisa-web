@@ -278,11 +278,45 @@ body {
   --z: 2;
 }
 
+/*
+  El titulo es un WebP animado cuadrado con margenes transparentes: el titulo en
+  si ocupa el 60.73% central del ancho del lienzo. Estas medidas escalan y
+  desplazan el lienzo completo para que ese recuadro caiga exactamente donde
+  estaba el PNG original (--x: 36.4846%; --y: 20.9035%; --w: 27.0109%). El margen
+  sobrante queda transparente y deja pasar al pajaro cuando entra y sale del
+  cuadro. El loop infinito ya viene en el propio archivo.
+*/
 .titulo {
-  --x: 36.4846%;
-  --y: 20.9035%;
-  --w: 27.0109%;
+  --x: 26.7760%;
+  --y: 16.7484%;
+  --w: 44.4880%;
   --z: 10;
+  filter: url("#titulo-color");
+
+  /*
+    Disuelve los laterales del lienzo para que el pajaro entre y salga sin
+    borde duro. El pajaro solo cruza por izquierda (cuadros 2-29) y por derecha
+    (174-182), nunca por arriba ni por abajo, asi que alcanza con un degradado
+    horizontal. El texto ocupa del 21.80% al 82.50% del lienzo y las mesetas
+    opacas van del 20% al 84%, o sea que la mascara no lo toca en absoluto.
+    Los pasos intermedios aproximan una curva suave: un degradado lineal corta
+    de forma perceptiblemente brusca en las puntas.
+  */
+  --borde-difuso: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16) 5%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.84) 15%,
+    #000 20%,
+    #000 84%,
+    rgba(0, 0, 0, 0.84) 88%,
+    rgba(0, 0, 0, 0.5) 92%,
+    rgba(0, 0, 0, 0.16) 96%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: var(--borde-difuso);
+  mask-image: var(--borde-difuso);
 }
 
 .girl-standing {
