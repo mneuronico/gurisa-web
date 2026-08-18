@@ -1,7 +1,18 @@
 :root {
   color-scheme: light;
   --page-bg: #63ad6a;
-  --top-crop: 17.9663%;
+  /*
+    La escena completa mide 1921x5399. Se parte en dos tableros para que al
+    entrar se vea solo el hero (titulo + Gurisa + Rio) centrado en la pantalla
+    y los tres frames de abajo queden fuera de la vista. El tablero del hero
+    ocupa toda la primera pantalla y muestra la escena de forma continua (su
+    copia de la escena solo tiene fondo, titulo y personajes, sin frames). El
+    resto arranca en y=1530 de la escena (--crop-rest): las 128 unidades de
+    fondo puro que hay hasta los frames (y=1658) se solapan con el final del
+    hero y se funden en gradiente sobre el (ver .rest / .artboard--rest), asi
+    los dos tableros empalman sin costura aunque el hero este mas ampliado.
+  */
+  --crop-rest: 28.3386%;
   --grape: #7b1fa2;
   --grape-deep: #5e1380;
   --paper: #f4ec96;
@@ -27,17 +38,73 @@ body {
 
 .site {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
+}
+
+/*
+  El hero ocupa (al menos) toda la primera pantalla y se centra vertical: al
+  entrar se ve el titulo con los personajes centrado, con aire arriba y abajo, y
+  los frames de abajo (en .rest) caen recien despues de 100svh.
+*/
+.hero-stage {
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  background: var(--page-bg);
+}
+
+.rest {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /*
+    Sube el tablero para que su banda de fondo puro (1530 a 1658 de la escena,
+    128/1921 = 6.6632% del ancho del tablero) se superponga con el final del
+    hero. Con la mascara de .artboard--rest, esa banda aparece en gradiente
+    sobre el hero: los dos patrones se cruzan sin linea visible, y los frames
+    (y=1658) quedan exactamente donde estaban, al borde de la primera pantalla.
+  */
+  margin-top: calc(min(100vw, 1921px) * -0.066632);
 }
 
 .artboard {
   position: relative;
   width: min(100%, 1921px);
-  aspect-ratio: 1921 / 3399;
   overflow: hidden;
   background: var(--page-bg);
   line-height: 0;
+}
+
+/*
+  El tablero del hero es la primera pantalla completa: una ventana de 100vw x
+  100svh sobre la escena, sin franjas de relleno. El fondo que se ve arriba,
+  abajo y a los costados del titulo es siempre el dibujo real (ondas y halo
+  amarillo), nunca un color plano.
+*/
+.artboard--hero {
+  width: 100%;
+  height: 100%;
+}
+
+/* Resto de la pagina: escena de 1530 hacia abajo (1921 x 2839). */
+.artboard--rest {
+  aspect-ratio: 1921 / 2839;
+  /*
+    Fundido de entrada sobre el hero: transparente arriba y opaco justo donde
+    empiezan los frames (mismo largo que el margen negativo de .rest).
+  */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 calc(min(100vw, 1921px) * 0.066632)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 calc(min(100vw, 1921px) * 0.066632)
+  );
 }
 
 .scene {
@@ -46,8 +113,35 @@ body {
   top: 0;
   width: 100%;
   aspect-ratio: 1921 / 5399;
-  transform: translateY(calc(-1 * var(--top-crop)));
   transform-origin: top center;
+}
+
+/*
+  La escena del hero se escala con el ALTO de la ventana (220svh de ancho) para
+  que el conjunto crezca con la pantalla: el contenido (copete de Gurisa y=1028
+  a subtitulo y=1643, 615 unidades) ocupa 615/1921 x 220svh = ~70% del alto
+  visible. Puede quedar mas ancha que la ventana: el sobrante de fondo se
+  recorta parejo a los costados. Topes: nunca menos que el ancho de la ventana,
+  y no mas de 170vw para que el contenido (441..1489, 1049 unidades) siempre
+  entre a lo ancho: 1921/1.70 = 1130 > 1049.
+
+  El centrado vertical es del CONTENIDO: left/top 50% ponen el origen de la
+  escena en el centro de la pantalla y el translate corre la escena para que el
+  centro del contenido (y=1335.5, el 24.736% de sus 5399) caiga justo ahi.
+
+  (Esta regla tiene que ir despues de .scene: pisa left/top/width con la misma
+  especificidad.)
+*/
+.scene--hero {
+  left: 50%;
+  top: 50%;
+  width: max(100%, min(220vh, 170vw));
+  width: max(100%, min(220svh, 170vw));
+  transform: translate(-50%, -24.736%);
+}
+
+.scene--rest {
+  transform: translateY(calc(-1 * var(--crop-rest)));
 }
 
 .layer {
@@ -287,9 +381,9 @@ body {
   cuadro. El loop infinito ya viene en el propio archivo.
 
   --y bajo 50px respecto del original (16.7484%) por el vuelo del pajaro: en el
-  despegue (cuadros 165-170) subia hasta y=968 de la escena, por encima del
-  borde visible, y se lo veia rebotar contra el techo de la pagina. Con esto y
-  el --top-crop nuevo le quedan ~48px de aire.
+  despegue (cuadros 165-170) subia demasiado y se lo veia rebotar contra el
+  borde. Ahora ademas el hero muestra la escena continua hacia arriba, asi que
+  al pajaro le sobra cielo por encima.
 
   El WebP esta regenerado a partir del master sin perdida de 1920 y con el drift
   del titulo compensado: las letras se corrian hasta 4.6 px del lienzo a lo
