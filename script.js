@@ -68,13 +68,22 @@ hotspots.forEach((link) => {
   link.addEventListener('blur', () => setTargetHover(link, false));
 
   link.addEventListener('click', (event) => {
-    event.preventDefault();
     link.classList.add('is-active');
     window.setTimeout(() => link.classList.remove('is-active'), 300);
 
     const guia = guias[link.dataset.target];
     if (guia) {
+      event.preventDefault();
       openGuia(guia);
+      return;
+    }
+
+    /*
+      Los capitulos llevan un href real a YouTube y tienen que navegar. Solo
+      frenamos los hotspots que todavia son marcadores de posicion (href="#").
+    */
+    if (link.getAttribute('href') === '#') {
+      event.preventDefault();
     }
   });
 });

@@ -1,7 +1,7 @@
 :root {
   color-scheme: light;
   --page-bg: #63ad6a;
-  --top-crop: 18.522%;
+  --top-crop: 17.9663%;
   --grape: #7b1fa2;
   --grape-deep: #5e1380;
   --paper: #f4ec96;
@@ -285,10 +285,20 @@ body {
   estaba el PNG original (--x: 36.4846%; --y: 20.9035%; --w: 27.0109%). El margen
   sobrante queda transparente y deja pasar al pajaro cuando entra y sale del
   cuadro. El loop infinito ya viene en el propio archivo.
+
+  --y bajo 50px respecto del original (16.7484%) por el vuelo del pajaro: en el
+  despegue (cuadros 165-170) subia hasta y=968 de la escena, por encima del
+  borde visible, y se lo veia rebotar contra el techo de la pagina. Con esto y
+  el --top-crop nuevo le quedan ~48px de aire.
+
+  El WebP esta regenerado a partir del master sin perdida de 1920 y con el drift
+  del titulo compensado: las letras se corrian hasta 4.6 px del lienzo a lo
+  largo del loop y volvian de golpe al reiniciar. Ahora el recorrido es de 1.4 px
+  y el salto de loop de 1.3 px (menos de 1 px en pantalla).
 */
 .titulo {
   --x: 26.7760%;
-  --y: 16.7484%;
+  --y: 17.6745%;
   --w: 44.4880%;
   --z: 10;
   filter: url("#titulo-color");
@@ -320,16 +330,16 @@ body {
 }
 
 .girl-standing {
-  --x: 19.6773%;
-  --y: 19.3369%;
-  --w: 25.1952%;
+  --x: 16.6554%;
+  --y: 17.7283%;
+  --w: 28.9745%;
   --z: 11;
 }
 
 .boy-standing {
-  --x: 53.2535%;
-  --y: 19.3369%;
-  --w: 25.7678%;
+  --x: 52.5039%;
+  --y: 17.7283%;
+  --w: 29.6330%;
   --z: 11;
 }
 
