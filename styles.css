@@ -374,7 +374,7 @@ body {
 
 /*
   El titulo es un WebP animado cuadrado con margenes transparentes: el titulo en
-  si ocupa el 60.73% central del ancho del lienzo. Estas medidas escalan y
+  si ocupa el 60.76% central del ancho del lienzo. Estas medidas escalan y
   desplazan el lienzo completo para que ese recuadro caiga exactamente donde
   estaba el PNG original (--x: 36.4846%; --y: 20.9035%; --w: 27.0109%). El margen
   sobrante queda transparente y deja pasar al pajaro cuando entra y sale del
@@ -385,24 +385,23 @@ body {
   borde. Ahora ademas el hero muestra la escena continua hacia arriba, asi que
   al pajaro le sobra cielo por encima.
 
-  El WebP esta regenerado a partir del master sin perdida de 1920 y con el drift
-  del titulo compensado: las letras se corrian hasta 4.6 px del lienzo a lo
-  largo del loop y volvian de golpe al reiniciar. Ahora el recorrido es de 1.4 px
-  y el salto de loop de 1.3 px (menos de 1 px en pantalla).
+  El WebP viene de una secuencia PNG con alfa exportada desde Premiere (359
+  cuadros a 24 fps, 14.96 s, lienzo de 1440 reducido a 1280). Este render no
+  necesita compensacion de drift: el titulo se mueve 0.41 px a lo largo del
+  loop, contra los 4.6 px del render anterior.
 */
 .titulo {
   --x: 26.7760%;
   --y: 17.6745%;
   --w: 44.4880%;
   --z: 10;
-  filter: url("#titulo-color");
 
   /*
     Disuelve los laterales del lienzo para que el pajaro entre y salga sin
-    borde duro. El pajaro solo cruza por izquierda (cuadros 2-29) y por derecha
-    (174-182), nunca por arriba ni por abajo, asi que alcanza con un degradado
-    horizontal. El texto ocupa del 21.80% al 82.50% del lienzo y las mesetas
-    opacas van del 20% al 84%, o sea que la mascara no lo toca en absoluto.
+    borde duro. Alcanza con un degradado horizontal: en el render actual el
+    pajaro ni siquiera llega a tocar los bordes del lienzo, asi que la mascara
+    es una red de seguridad. El texto ocupa del 21.67% al 82.36% del lienzo y
+    las mesetas opacas van del 20% al 84%: la mascara no lo toca en absoluto.
     Los pasos intermedios aproximan una curva suave: un degradado lineal corta
     de forma perceptiblemente brusca en las puntas.
   */

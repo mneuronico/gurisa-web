@@ -4,3 +4,7 @@ partes/high-q_1.webp
 
 # Zip crudo de las portadas: ya descomprimido en portadas/
 portadas.zip
+
+# Secuencia PNG de origen del titulo animado (333 MB): es la fuente para
+# regenerar partes/titulo_pajaro.webp, no la usa el sitio.
+video/frames/
