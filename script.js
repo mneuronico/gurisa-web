@@ -14,6 +14,21 @@ function setTargetHover(link, isHovered) {
   }
 }
 
+/* Globo de texto del personaje, si el hotspot tiene uno asociado. */
+function setGlobo(link, isHovered) {
+  const id = link.dataset.globo;
+
+  if (!id) {
+    return;
+  }
+
+  const globo = document.getElementById(id);
+
+  if (globo) {
+    globo.classList.toggle('is-visible', isHovered);
+  }
+}
+
 /* ---------- PDF viewer ---------- */
 const guias = {
   'guia-1-img': { src: 'guias/guia-aula-1.pdf', title: 'Guía para el aula · Micro 1' },
@@ -62,10 +77,15 @@ document.addEventListener('keydown', (event) => {
 });
 
 hotspots.forEach((link) => {
-  link.addEventListener('pointerenter', () => setTargetHover(link, true));
-  link.addEventListener('pointerleave', () => setTargetHover(link, false));
-  link.addEventListener('focus', () => setTargetHover(link, true));
-  link.addEventListener('blur', () => setTargetHover(link, false));
+  const mostrar = (visible) => {
+    setTargetHover(link, visible);
+    setGlobo(link, visible);
+  };
+
+  link.addEventListener('pointerenter', () => mostrar(true));
+  link.addEventListener('pointerleave', () => mostrar(false));
+  link.addEventListener('focus', () => mostrar(true));
+  link.addEventListener('blur', () => mostrar(false));
 
   link.addEventListener('click', (event) => {
     link.classList.add('is-active');

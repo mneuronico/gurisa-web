@@ -90,7 +90,7 @@ body {
 
 /* Resto de la pagina: escena de 1530 hacia abajo (1921 x 2839). */
 .artboard--rest {
-  aspect-ratio: 1921 / 2839;
+  aspect-ratio: 1921 / 3099;
   /*
     Fundido de entrada sobre el hero: transparente arriba y opaco justo donde
     empiezan los frames (mismo largo que el margen negativo de .rest).
@@ -353,7 +353,7 @@ body {
 
 .capitulo-1 {
   --x: 19.0583%;
-  --y: 44.3526%;
+  --y: 49.1683%;
   --w: 19.8328%;
   --h: 4.7004%;
 }
@@ -480,238 +480,238 @@ body {
 
 .episodios-title {
   --x: 36.2832%;
-  --y: 40.0259%;
+  --y: 44.8416%;
   --w: 28.4227%;
   --z: 30;
 }
 
 .capitulo-1-img {
   --x: 17.3347%;
-  --y: 43.6933%;
+  --y: 48.5090%;
   --w: 22.3842%;
   --z: 33;
 }
 
 .capitulo-2-img {
   --x: 39.6668%;
-  --y: 43.6933%;
+  --y: 48.5090%;
   --w: 21.0307%;
   --z: 33;
 }
 
 .capitulo-3-img {
   --x: 60.6976%;
-  --y: 43.6933%;
+  --y: 48.5090%;
   --w: 22.0198%;
   --z: 33;
 }
 
 .capitulo-4-img {
   --x: 27.8501%;
-  --y: 51.6577%;
+  --y: 56.4734%;
   --w: 22.3842%;
   --z: 33;
 }
 
 .capitulo-5-img {
   --x: 50.1822%;
-  --y: 51.6577%;
+  --y: 56.4734%;
   --w: 23.1650%;
   --z: 33;
 }
 
 .capybara-bike {
   --x: 0%;
-  --y: 46.9161%;
+  --y: 51.7318%;
   --w: 37.4805%;
   --z: 31;
 }
 
 .animal-pointing {
   --x: 67.4128%;
-  --y: 46.5086%;
+  --y: 51.3243%;
   --w: 32.5872%;
   --z: 31;
 }
 
 .estrellitas {
   --x: 0%;
-  --y: 60.1778%;
+  --y: 64.9935%;
   --w: 100%;
   --z: 40;
 }
 
 .guias-title {
   --x: 36.3352%;
-  --y: 59.9926%;
+  --y: 64.8083%;
   --w: 30.1406%;
   --z: 42;
 }
 
 .girl-jumping {
   --x: 8.6413%;
-  --y: 61.6966%;
+  --y: 66.5123%;
   --w: 25.7678%;
   --z: 43;
 }
 
 .boy-jumping {
   --x: 64.4977%;
-  --y: 61.6966%;
+  --y: 66.5123%;
   --w: 24.0500%;
   --z: 43;
 }
 
 .guia-1-img {
   --x: 24.6746%;
-  --y: 64.6416%;
+  --y: 69.4573%;
   --w: 15.5128%;
   --z: 45;
 }
 
 .guia-2-img {
   --x: 35.7106%;
-  --y: 64.4934%;
+  --y: 69.3091%;
   --w: 13.6387%;
   --z: 45;
 }
 
 .guia-3-img {
   --x: 44.9245%;
-  --y: 63.8081%;
+  --y: 68.6238%;
   --w: 13.1182%;
   --z: 45;
 }
 
 .guia-4-img {
   --x: 54.8152%;
-  --y: 63.7340%;
+  --y: 68.5497%;
   --w: 12.1291%;
   --z: 45;
 }
 
 .guia-5-img {
   --x: 63.8730%;
-  --y: 64.0119%;
+  --y: 68.8276%;
   --w: 12.9099%;
   --z: 45;
 }
 
 .queres-img {
   --x: 24.9870%;
-  --y: 70.2538%;
+  --y: 75.0695%;
   --w: 50.9630%;
   --z: 50;
 }
 
 .enersa-img {
   --x: 17.1265%;
-  --y: 74.2174%;
+  --y: 79.0331%;
   --w: 20.8225%;
   --z: 51;
 }
 
 .turismo-img {
   --x: 37.9490%;
-  --y: 74.2174%;
+  --y: 79.0331%;
   --w: 21.7074%;
   --z: 51;
 }
 
 .mientrerios-img {
   --x: 59.6044%;
-  --y: 74.2174%;
+  --y: 79.0331%;
   --w: 24.8308%;
   --z: 51;
 }
 
 .capitulo-2 {
   --x: 40.4297%;
-  --y: 44.3526%;
+  --y: 49.1683%;
   --w: 19.8328%;
   --h: 4.7004%;
 }
 
 .capitulo-3 {
   --x: 61.8010%;
-  --y: 44.3526%;
+  --y: 49.1683%;
   --w: 19.8328%;
   --h: 4.7004%;
 }
 
 .capitulo-4 {
   --x: 28.9745%;
-  --y: 52.1450%;
+  --y: 56.9607%;
   --w: 19.8328%;
   --h: 4.7004%;
 }
 
 .capitulo-5 {
   --x: 51.9458%;
-  --y: 52.1450%;
+  --y: 56.9607%;
   --w: 19.8328%;
   --h: 4.7004%;
 }
 
 .guia-1 {
   --x: 26.5146%;
-  --y: 65.2242%;
+  --y: 70.0399%;
   --w: 12.3172%;
   --h: 4.8722%;
 }
 
 .guia-2 {
   --x: 36.9458%;
-  --y: 64.6742%;
+  --y: 69.4899%;
   --w: 10.6010%;
   --h: 4.6417%;
 }
 
 .guia-3 {
   --x: 46.7339%;
-  --y: 64.5353%;
+  --y: 69.3510%;
   --w: 9.7146%;
   --h: 4.4993%;
 }
 
 .guia-4 {
   --x: 55.8427%;
-  --y: 64.5108%;
+  --y: 69.3265%;
   --w: 10.0891%;
   --h: 4.6934%;
 }
 
 .guia-5 {
   --x: 64.6000%;
-  --y: 64.8315%;
+  --y: 69.6472%;
   --w: 11.3656%;
   --h: 5.1161%;
 }
 
 .queres-conocer {
   --x: 26.7547%;
-  --y: 70.2789%;
+  --y: 75.0946%;
   --w: 49.1437%;
   --h: 4.0700%;
 }
 
 .enersa {
   --x: 16.5344%;
-  --y: 74.5653%;
+  --y: 79.3810%;
   --w: 21.4021%;
   --h: 3.0387%;
 }
 
 .turismo {
   --x: 32.2979%;
-  --y: 74.5704%;
+  --y: 79.3861%;
   --w: 27.3057%;
   --h: 3.1784%;
 }
 
 .mientrerios {
   --x: 57.7099%;
-  --y: 73.3083%;
+  --y: 78.1240%;
   --w: 26.7260%;
   --h: 4.4405%;
 }
@@ -926,4 +926,165 @@ body.pdf-open {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ---------------- Globos de texto de los personajes ---------------- */
+
+/*
+  Zonas de hover de Gurisa y Rio. Cubren el rectangulo completo de cada
+  personaje: --h sale de la proporcion del PNG (622/484 y 622/495) llevada a
+  porcentaje del alto de la escena, igual que el resto de los hotspots.
+*/
+.gurisa-button {
+  --x: 16.6554%;
+  --y: 17.7283%;
+  --w: 28.9745%;
+  --h: 13.2488%;
+}
+
+.rio-button {
+  --x: 52.5039%;
+  --y: 17.7283%;
+  --w: 29.6330%;
+  --h: 13.2487%;
+}
+
+/* Los dos personajes reaccionan al hover como los demas botones dibujados. */
+.layer.is-hovered.girl-standing,
+.layer.is-hovered.boy-standing {
+  animation-name: button-hover-sign;
+}
+
+.globo {
+  position: absolute;
+  z-index: 120;
+  box-sizing: border-box;
+  padding: 0.95em 1.25em;
+  border: 0.14em solid var(--grape);
+  border-radius: 1.15em;
+  background: var(--paper);
+  color: var(--grape-deep);
+  font-weight: 700;
+  line-height: 1.3;
+  text-wrap: balance;
+  box-shadow: 0 0.45em 1.3em rgba(40, 8, 60, 0.3);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 0.7em, 0) scale(0.9);
+  transition:
+    opacity 170ms ease,
+    transform 340ms cubic-bezier(0.18, 0.89, 0.32, 1.28),
+    visibility 0s linear 180ms;
+}
+
+.globo.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition-delay: 0s, 0s, 0s;
+}
+
+/* La puntita que apunta al personaje. */
+.globo::before {
+  content: "";
+  position: absolute;
+  width: 0.85em;
+  height: 0.85em;
+  background: var(--paper);
+  border: 0.14em solid var(--grape);
+}
+
+/*
+  Los globos del hero se anclan a los bordes del TABLERO y no a la escena: la
+  escena del hero se recorta horizontalmente segun el alto de la ventana, asi
+  que una coordenada de escena en los laterales se saldria de la pantalla.
+*/
+.globo--gurisa,
+.globo--rio {
+  top: 45%;
+  width: min(19%, 17em);
+  font-size: clamp(12px, 1.05vw, 21px);
+  transform-origin: 50% 50%;
+}
+
+/*
+  Van pegados al borde: el dibujo de Gurisa arranca recien al 21.7% de su
+  lienzo y el de Rio termina al 84.4% del suyo, asi que con este ancho el globo
+  apenas roza al personaje en vez de taparle el cuerpo. La cara queda muy por
+  encima, sin cubrir.
+*/
+.globo--gurisa {
+  left: 1.2%;
+}
+
+.globo--rio {
+  right: 1.2%;
+}
+
+.globo--gurisa::before {
+  top: 50%;
+  right: -0.5em;
+  border-width: 0.14em 0.14em 0 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.globo--rio::before {
+  top: 50%;
+  left: -0.5em;
+  border-width: 0 0 0.14em 0.14em;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/*
+  Los tres paneles de abajo si usan coordenadas de escena: ese tablero se ve
+  entero de lado a lado. Van en la banda de 150 unidades que se abrio entre el
+  pie de los paneles (40.03%) y el titulo de Episodios (42.80%).
+*/
+.globo--panel {
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  font-size: calc(min(100vw, 1921px) * 0.0138);
+  text-align: center;
+  transform-origin: 50% 0;
+}
+
+.globo--panel::before {
+  top: -0.5em;
+  left: 50%;
+  border-width: 0.14em 0 0 0.14em;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.globo--volti {
+  --x: 16%;
+  --y: 40.25%;
+  --w: 30%;
+}
+
+.globo--modo {
+  --x: 35%;
+  --y: 40.25%;
+  --w: 30%;
+}
+
+.globo--jujo {
+  --x: 54%;
+  --y: 40.25%;
+  --w: 30%;
+}
+
+/* Sin hover real no hay forma de mostrarlos ni de ocultarlos. */
+@media (hover: none), (pointer: coarse) {
+  .globo {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globo,
+  .globo.is-visible {
+    transform: none;
+  }
 }
